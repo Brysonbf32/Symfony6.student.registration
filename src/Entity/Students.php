@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\StudentsRepository;
-use DateTimeImmutable;
+// use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -28,15 +28,15 @@ class Students
     #[Assert\Length(min: 2, max:20)]
     private ?string $phone = null; 
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    #[Assert\NotNull()]
-    // constructor
-    private ?DateTimeImmutable $dateBirth;
-    public function __construct()
-    {
-        $this->dateBirth = new \DateTimeImmutable();
+    // #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    // #[Assert\NotNull()]
+    // // constructor
+    // private ?\DateTimeImmutable $dateBirth =null;
+    // public function __construct()
+    // {
+    //     $this->dateBirth = new \DateTimeImmutable();
 
-    }
+    // }
     #[ORM\Column] 
     #[Assert\Positive]
     #[Assert\LessThan(200)]
@@ -84,17 +84,17 @@ class Students
         return $this;
     }
 
-    public function getDateBirth(): ?\DateTimeInterface
-    {
-        return $this->dateBirth;
-    }
+    // public function getDateBirth(): ?\DateTimeImmutable
+    // {
+    //     return $this->dateBirth;
+    // }
 
-    public function setDateBirth(\DateTimeInterface $dateBirth): static
-    {
-        $this->dateBirth = $dateBirth;
+    // public function setDateBirth(\DateTimeImmutable $dateBirth): static
+    // {
+    //     $this->dateBirth = $dateBirth;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getMatricule(): ?int
     {
